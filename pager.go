@@ -33,8 +33,7 @@ type Records struct {
 	To int
 }
 
-// Pages struct contains variables pertaining to the pages that were
-// generated.
+// Pages struct contains variables pertaining to the pages that were generated.
 type Pages struct {
 	// ...total number of pages
 	Total int
