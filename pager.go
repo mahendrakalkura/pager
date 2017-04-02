@@ -1,3 +1,6 @@
+// Pager is a library which you can use for the purpose of generating and
+// rendering pagination links.
+
 package pager
 
 import (
@@ -5,34 +8,54 @@ import (
 	"math"
 )
 
-// Pager ...
+// Pager is a container struct. It encapsulates Records and Pages structs.
 type Pager struct {
+	// (see below)
 	Records Records
-	Pages   Pages
-	URL     string
+	// (see below)
+	Pages Pages
+	// ...URL syntax
+	URL string
 }
 
-// Records ...
+// Records struct contains variables pertaining to the records under
+// consideration.
 type Records struct {
-	Total  int
-	Limit  int
+	// ...total number of records under consideration
+	Total int
+	// ...LIMIT (number of records per page)
+	Limit int
+	// ...OFFSET
 	Offset int
-	From   int
-	To     int
+	// ...serial number of the first object in the current page
+	From int
+	// ...serial number of the last object in the current page
+	To int
 }
 
-// Pages ...
+// Pages struct contains variables pertaining to the pages that were
+// generated.
 type Pages struct {
-	Total    int
-	Number   int
-	First    int
+	// ...total number of pages
+	Total int
+	// ...current page number
+	Number int
+	// ...first page number
+	First int
+	// ...previous page number
 	Previous int
-	Numbers  []int
-	Next     int
-	Last     int
+	// ...sliding window of page numbers (on either side of the current page)
+	Numbers []int
+	// ...next page number
+	Next int
+	// ...last page number
+	Last int
 }
 
-// NewPager ...
+// NewPager creates a new instance of a Pager struct. It accepts the following
+// variables and computes the remaining variables on-the-fly. The computed
+// variables are persisted throughout the lifecycle of the Pager struct (no
+// costly recomputation is performed).
 func NewPager(recordsTotal int, recordsLimit int, pagesNumber int, pagesNumbers int, url string) *Pager {
 	pager := &Pager{}
 	pager.Records.Total = recordsTotal
@@ -53,7 +76,8 @@ func NewPager(recordsTotal int, recordsLimit int, pagesNumber int, pagesNumbers 
 	return pager
 }
 
-// GetURL ...
+// GetURL accepts a page number and returns a neatly formatted URL using the
+// given URL syntax.
 func (pager *Pager) GetURL(number int) string {
 	url := fmt.Sprintf(pager.URL, number)
 	return url
