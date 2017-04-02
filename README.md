@@ -28,7 +28,7 @@ count := 100
 limit := 10
 
 // ...current page number
-page := 1
+number := 1
 
 // ...the size of the sliding window of page numbers
 //    (on either side of the current page)
@@ -38,7 +38,7 @@ numbers := 3
 //    (%d will be replaced with the page number in context)
 url := "/%d/"
 
-p = pager.NewPager(count, settings.Container.Pagers.Limit, page, settings.Container.Pagers.Numbers, url)
+p = pager.NewPager(count, limit, number, numbers, url)
 
 ```
 
