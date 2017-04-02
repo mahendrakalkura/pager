@@ -14,39 +14,42 @@ $ go get github.com/mahendrakalkura/pager
 
 ## How to use?
 
-Step 1: Initialize the pager.
+*Step 1:** Initialize the pager.
 
 ```
 import (
     "github.com/mahendrakalkura/pager"
 )
 
-func main() {
-    // ...total number of items under consideration
-    count := 100
+// ...total number of items under consideration
+count := 100
 
-    // ...number of items per page
-    limit := 10
+// ...number of items per page
+limit := 10
 
-    // ...current page number
-    page := 1
+// ...current page number
+page := 1
 
-    // ...the size of the sliding window of page numbers
-    //    (on either side of the current page)
-    numbers := 3
+// ...the size of the sliding window of page numbers
+//    (on either side of the current page)
+numbers := 3
 
-    // ...the URL syntax
-    //    (%d will be replaced with the page number in context)
-    url := "/%d/"
+// ...the URL syntax
+//    (%d will be replaced with the page number in context)
+url := "/%d/"
 
-    p = pager.NewPager(count, settings.Container.Pagers.Limit, page, settings.Container.Pagers.Numbers, url)
+p = pager.NewPager(count, settings.Container.Pagers.Limit, page, settings.Container.Pagers.Numbers, url)
 
-    // ...use p.Records.Limit and p.Records.Offset in your query
-    //    SELECT * FROM ... WHERE ... ORDER BY ... LIMIT %d OFFSET %d
-}
 ```
 
-Step 2: Use it.
+*Step 2:** Use it in your view.
+
+```
+query := "SELECT * FROM ... WHERE ... ORDER BY ... LIMIT %d OFFSET %d"
+query = fmt.Sprintf(query, p.Records.Limit, p.Records.Offset)
+```
+
+*Step 3:** Use it in your template.
 
 ```
 <div>
