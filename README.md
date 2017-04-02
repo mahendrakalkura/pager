@@ -14,7 +14,7 @@ $ go get github.com/mahendrakalkura/pager
 
 ## How to use?
 
-*Step 1:** Initialize the pager.
+**Step 1:** Initialize the pager.
 
 ```
 import (
@@ -42,14 +42,14 @@ p = pager.NewPager(count, settings.Container.Pagers.Limit, page, settings.Contai
 
 ```
 
-*Step 2:** Use it in your view.
+**Step 2:** Use it in your view.
 
 ```
 query := "SELECT * FROM ... WHERE ... ORDER BY ... LIMIT %d OFFSET %d"
 query = fmt.Sprintf(query, p.Records.Limit, p.Records.Offset)
 ```
 
-*Step 3:** Use it in your template.
+**Step 3:** Use it in your template.
 
 ```
 <div>
