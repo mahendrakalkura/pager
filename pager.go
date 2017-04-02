@@ -1,5 +1,5 @@
-// Pager is a library which you can use for the purpose of generating and
-// rendering pagination links.
+// Package pager is a library which you can use for the purpose of generating
+// and rendering pagination links.
 package pager
 
 import (
