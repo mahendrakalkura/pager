@@ -5,7 +5,15 @@ import (
 	"math"
 )
 
-type pagerRecords struct {
+// Pager ...
+type Pager struct {
+	Records Records
+	Pages   Pages
+	URL     string
+}
+
+// Records ...
+type Records struct {
 	Total  int
 	Limit  int
 	Offset int
@@ -13,7 +21,8 @@ type pagerRecords struct {
 	To     int
 }
 
-type pagerPages struct {
+// Pages ...
+type Pages struct {
 	Total    int
 	Number   int
 	First    int
@@ -21,13 +30,6 @@ type pagerPages struct {
 	Numbers  []int
 	Next     int
 	Last     int
-}
-
-// Pager ...
-type Pager struct {
-	Records pagerRecords
-	Pages   pagerPages
-	URL     string
 }
 
 // NewPager ...
