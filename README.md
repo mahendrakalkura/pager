@@ -21,20 +21,20 @@ import (
     "github.com/mahendrakalkura/pager"
 )
 
-// ...total number of items under consideration
+// ...total number of records under consideration
 count := 100
 
-// ...number of items per page
+// ...number of records per page
 limit := 10
 
 // ...current page number
 number := 1
 
-// ...the size of the sliding window of page numbers
+// ...size of the sliding window of page numbers
 //    (on either side of the current page)
 numbers := 3
 
-// ...the URL syntax
+// ...URL syntax
 //    (%d will be replaced with the page number in context)
 url := "/%d/"
 
@@ -55,7 +55,7 @@ query = fmt.Sprintf(query, p.Records.Limit, p.Records.Offset)
 <div>
     <p class="pagination pull-right">
         Showing {{ $.p.Records.From }} to {{ $.p.Records.To }} of {{ $.p.Records.Total }}
-        items
+        records
     </p>
     <ul class="pagination">
         <li {{ if eq $.p.Pages.Number 1 }}class="disabled"{{ end }}>
