@@ -1,7 +1,9 @@
 Pager
 =====
 
-[![Build Status](https://travis-ci.org/mahendrakalkura/pager.png?branch=master)](https://travis-ci.org/mahendrakalkura/pager) [![GoDoc](https://godoc.org/github.com/mahendrakalkura/pager?status.svg)](https://godoc.org/github.com/mahendrakalkura/pager)
+[![Build Status](https://travis-ci.org/mahendrakalkura/pager.png?branch=master)](https://travis-ci.org/mahendrakalkura/pager)
+
+[![GoDoc](https://godoc.org/github.com/mahendrakalkura/pager?status.svg)](https://godoc.org/github.com/mahendrakalkura/pager)
 
 # How to install?
 
